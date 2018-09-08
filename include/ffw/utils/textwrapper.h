@@ -2,6 +2,7 @@
 #ifndef FFW_UTILS_TEXT_WRAPPER
 #define FFW_UTILS_TEXT_WRAPPER
 
+#include <cstdint>
 #include "config.h"
 #include "third_party/utfcpp/checked.h"
 

@@ -39,6 +39,8 @@ if(STATIC_STDLIB)
     target_link_libraries(${PROJECT_NAME} -static-libgcc -static-libstdc++)
 endif(STATIC_STDLIB)
 
+find_package(Threads)
+
 # Examples extra files
 set(EXAMPLES_FILES "")
 
@@ -61,6 +63,10 @@ if(BUILD_EXAMPLES)
         target_link_libraries(${EXAMPLE_PROJ} ${PROJECT_NAME})
         if(MSVC)
             set_target_properties(${EXAMPLE_PROJ} PROPERTIES LINK_FLAGS "/SUBSYSTEM:CONSOLE")
+        endif()
+
+        if(UNIX)
+            target_link_libraries(${EXAMPLE_PROJ} Threads::Threads)
         endif()
 
         # Compile with static stdlib ?
@@ -97,6 +103,10 @@ if(BUILD_TESTS)
 
         if(MSVC)
             set_target_properties(${TEST_PROJ} PROPERTIES LINK_FLAGS "/SUBSYSTEM:CONSOLE")
+        endif()
+
+        if(UNIX)
+            target_link_libraries(${TEST_PROJ} Threads::Threads)
         endif()
 
         # Compile with static stdlib ?
