@@ -129,7 +129,7 @@ std::string ffw::getExecutableDir() {
     char result[PATH_MAX];
     char szTmp[32];
     sprintf(szTmp, "/proc/%d/exe", getpid());
-    int bytes = std::min(readlink(szTmp, result, PATH_MAX), PATH_MAX - 1);
+    int bytes = std::min(readlink(szTmp, result, PATH_MAX), ssize_t(PATH_MAX - 1));
     if (bytes >= 0)
         result[bytes] = '\0';
     return std::string(result);
