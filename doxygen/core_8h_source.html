@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>core.h File Reference | FineUtils</title>
+    <meta name="description" content="A simple image reading and writing library">
+    
+    <meta name="keywords" content="core.h file">
+    <link rel="preload" href="/fineutils/assets/css/0.styles.d223fe93.css" as="style"><link rel="preload" href="/fineutils/assets/js/app.7d3a9dfe.js" as="script"><link rel="preload" href="/fineutils/assets/js/34.b84f8618.js" as="script"><link rel="prefetch" href="/fineutils/assets/js/32.a46cdbc1.js"><link rel="prefetch" href="/fineutils/assets/js/2.cda51ec0.js"><link rel="prefetch" href="/fineutils/assets/js/3.6f2b459c.js"><link rel="prefetch" href="/fineutils/assets/js/4.3b98b9d4.js"><link rel="prefetch" href="/fineutils/assets/js/5.9ff422f3.js"><link rel="prefetch" href="/fineutils/assets/js/6.5eee8565.js"><link rel="prefetch" href="/fineutils/assets/js/7.fcc97c99.js"><link rel="prefetch" href="/fineutils/assets/js/8.1fec8da9.js"><link rel="prefetch" href="/fineutils/assets/js/9.6b476673.js"><link rel="prefetch" href="/fineutils/assets/js/10.dd6f78b5.js"><link rel="prefetch" href="/fineutils/assets/js/11.13164b47.js"><link rel="prefetch" href="/fineutils/assets/js/12.0b2f7532.js"><link rel="prefetch" href="/fineutils/assets/js/13.1d05611f.js"><link rel="prefetch" href="/fineutils/assets/js/14.b68c6860.js"><link rel="prefetch" href="/fineutils/assets/js/15.04bcd5ab.js"><link rel="prefetch" href="/fineutils/assets/js/16.64911b9b.js"><link rel="prefetch" href="/fineutils/assets/js/17.088b3523.js"><link rel="prefetch" href="/fineutils/assets/js/18.f4f9e756.js"><link rel="prefetch" href="/fineutils/assets/js/19.ab280be5.js"><link rel="prefetch" href="/fineutils/assets/js/20.24ad01d7.js"><link rel="prefetch" href="/fineutils/assets/js/21.cc254df0.js"><link rel="prefetch" href="/fineutils/assets/js/22.29c8dcc0.js"><link rel="prefetch" href="/fineutils/assets/js/23.b6887598.js"><link rel="prefetch" href="/fineutils/assets/js/24.260cb1ae.js"><link rel="prefetch" href="/fineutils/assets/js/25.de73c4db.js"><link rel="prefetch" href="/fineutils/assets/js/26.f07db03b.js"><link rel="prefetch" href="/fineutils/assets/js/27.c2cf0cb6.js"><link rel="prefetch" href="/fineutils/assets/js/28.f9860f54.js"><link rel="prefetch" href="/fineutils/assets/js/29.753c886d.js"><link rel="prefetch" href="/fineutils/assets/js/30.37bcaa35.js"><link rel="prefetch" href="/fineutils/assets/js/31.4a666805.js"><link rel="prefetch" href="/fineutils/assets/js/33.bc05f962.js"><link rel="prefetch" href="/fineutils/assets/js/35.9d07261a.js"><link rel="prefetch" href="/fineutils/assets/js/36.fbe642a5.js"><link rel="prefetch" href="/fineutils/assets/js/37.f7f6c8cf.js"><link rel="prefetch" href="/fineutils/assets/js/38.cef9f498.js"><link rel="prefetch" href="/fineutils/assets/js/39.8b870959.js"><link rel="prefetch" href="/fineutils/assets/js/40.df53c2cf.js"><link rel="prefetch" href="/fineutils/assets/js/41.1c96f5bf.js"><link rel="prefetch" href="/fineutils/assets/js/42.79b3d94a.js"><link rel="prefetch" href="/fineutils/assets/js/43.f0a71614.js"><link rel="prefetch" href="/fineutils/assets/js/44.7b8803fa.js"><link rel="prefetch" href="/fineutils/assets/js/45.94105d35.js"><link rel="prefetch" href="/fineutils/assets/js/46.15b17a36.js"><link rel="prefetch" href="/fineutils/assets/js/47.70f6951a.js"><link rel="prefetch" href="/fineutils/assets/js/48.565f4c8f.js"><link rel="prefetch" href="/fineutils/assets/js/49.1657aa1a.js"><link rel="prefetch" href="/fineutils/assets/js/50.75da8829.js"><link rel="prefetch" href="/fineutils/assets/js/51.c9f35afb.js"><link rel="prefetch" href="/fineutils/assets/js/52.fe2bc579.js"><link rel="prefetch" href="/fineutils/assets/js/53.a7388a2a.js"><link rel="prefetch" href="/fineutils/assets/js/54.acc4c558.js"><link rel="prefetch" href="/fineutils/assets/js/55.3aca71a7.js"><link rel="prefetch" href="/fineutils/assets/js/56.976f4a11.js"><link rel="prefetch" href="/fineutils/assets/js/57.5d455215.js"><link rel="prefetch" href="/fineutils/assets/js/58.ae627863.js"><link rel="prefetch" href="/fineutils/assets/js/59.6203c3dd.js"><link rel="prefetch" href="/fineutils/assets/js/60.14ca757c.js"><link rel="prefetch" href="/fineutils/assets/js/61.c0979d40.js"><link rel="prefetch" href="/fineutils/assets/js/62.e9031eb9.js"><link rel="prefetch" href="/fineutils/assets/js/63.fccc130d.js"><link rel="prefetch" href="/fineutils/assets/js/64.58e2c832.js"><link rel="prefetch" href="/fineutils/assets/js/65.1606b723.js"><link rel="prefetch" href="/fineutils/assets/js/66.7e6a1905.js">
+    <link rel="stylesheet" href="/fineutils/assets/css/0.styles.d223fe93.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/fineutils/" class="home-link router-link-active"><!----> <span class="site-name">FineUtils</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/fineutils/" class="nav-link">Home</a></div><div class="nav-item"><a href="/fineutils/INSTALL.html" class="nav-link">Install</a></div><div class="nav-item"><a href="/fineutils/examples/" class="nav-link">Examples</a></div><div class="nav-item"><a href="/fineutils/doxygen/modules.html" class="nav-link">Modules</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Classes</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/fineutils/doxygen/annotated.html" class="nav-link">Class List</a></li><li class="dropdown-item"><!----> <a href="/fineutils/doxygen/classes.html" class="nav-link">Class Index</a></li><li class="dropdown-item"><!----> <a href="/fineutils/doxygen/functions.html" class="nav-link">Function Index</a></li><li class="dropdown-item"><!----> <a href="/fineutils/doxygen/variables.html" class="nav-link">Variable Index</a></li><li class="dropdown-item"><!----> <a href="/fineutils/doxygen/enumerations.html" class="nav-link">Enumeration Index</a></li></ul></div></div><div class="nav-item"><a href="/fineutils/doxygen/files.html" class="nav-link">Files</a></div><div class="nav-item"><a href="/fineutils/doxygen/pages.html" class="nav-link">Pages</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/fineutils/" class="nav-link">Home</a></div><div class="nav-item"><a href="/fineutils/INSTALL.html" class="nav-link">Install</a></div><div class="nav-item"><a href="/fineutils/examples/" class="nav-link">Examples</a></div><div class="nav-item"><a href="/fineutils/doxygen/modules.html" class="nav-link">Modules</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Classes</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/fineutils/doxygen/annotated.html" class="nav-link">Class List</a></li><li class="dropdown-item"><!----> <a href="/fineutils/doxygen/classes.html" class="nav-link">Class Index</a></li><li class="dropdown-item"><!----> <a href="/fineutils/doxygen/functions.html" class="nav-link">Function Index</a></li><li class="dropdown-item"><!----> <a href="/fineutils/doxygen/variables.html" class="nav-link">Variable Index</a></li><li class="dropdown-item"><!----> <a href="/fineutils/doxygen/enumerations.html" class="nav-link">Enumeration Index</a></li></ul></div></div><div class="nav-item"><a href="/fineutils/doxygen/files.html" class="nav-link">Files</a></div><div class="nav-item"><a href="/fineutils/doxygen/pages.html" class="nav-link">Pages</a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>core.h File Reference</span> <!----></p> <ul class="sidebar-group-items"></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="core-h-file-reference"><a href="#core-h-file-reference" aria-hidden="true" class="header-anchor">#</a> core.h File Reference</h1> <p><strong><a href="/fineutils/doxygen/core_8h.html">Go to the documentation of this file.</a></strong>
+Source: <code>include/ffw/utils/third\_party/utfcpp/core.h</code></p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">// Copyright 2006 Nemanja Trifunovic</span>
+
+<span class="token comment">/*
+Permission is hereby granted, free of charge, to any person or organization
+obtaining a copy of the software and accompanying documentation covered by
+this license (the &quot;Software&quot;) to use, reproduce, display, distribute,
+execute, and transmit the Software, and to prepare derivative works of the
+Software, and to permit third-parties to whom the Software is furnished to
+do so, all subject to the following:
+
+The copyright notices in the Software and this entire statement, including
+the above license grant, this restriction and the following disclaimer,
+must be included in all copies of the Software, in whole or in part, and
+all derivative works of the Software, unless such copies or derivative
+works are solely in the form of machine-executable object code generated by
+a source language processor.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+*/</span>
+
+
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> UTF8_FOR_CPP_CORE_H_2675DCD0_9480_4c0c_B92A_CC14C027B731</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> UTF8_FOR_CPP_CORE_H_2675DCD0_9480_4c0c_B92A_CC14C027B731</span>
+
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iterator&gt;</span></span>
+
+<span class="token keyword">namespace</span> utf8
+<span class="token punctuation">{</span>
+    <span class="token comment">// The typedefs for 8-bit, 16-bit and 32-bit unsigned integers</span>
+    <span class="token comment">// You may need to change them to match your system.</span>
+    <span class="token comment">// These typedefs have the same names as ones from cstdint, or boost/cstdint</span>
+    <span class="token keyword">typedef</span> <span class="token keyword">unsigned</span> <span class="token keyword">char</span>   <span class="token keyword">uint8_t</span><span class="token punctuation">;</span>
+    <span class="token keyword">typedef</span> <span class="token keyword">unsigned</span> <span class="token keyword">short</span>  <span class="token keyword">uint16_t</span><span class="token punctuation">;</span>
+    <span class="token keyword">typedef</span> <span class="token keyword">unsigned</span> <span class="token keyword">int</span>    <span class="token keyword">uint32_t</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Helper code - not intended to be directly called by the library users. May be changed at any time</span>
+<span class="token keyword">namespace</span> internal
+<span class="token punctuation">{</span>
+    <span class="token comment">// Unicode constants</span>
+    <span class="token comment">// Leading (high) surrogates: 0xd800 - 0xdbff</span>
+    <span class="token comment">// Trailing (low) surrogates: 0xdc00 - 0xdfff</span>
+    <span class="token keyword">const</span> <span class="token keyword">uint16_t</span> LEAD_SURROGATE_MIN  <span class="token operator">=</span> <span class="token number">0xd800u</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">uint16_t</span> LEAD_SURROGATE_MAX  <span class="token operator">=</span> <span class="token number">0xdbffu</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">uint16_t</span> TRAIL_SURROGATE_MIN <span class="token operator">=</span> <span class="token number">0xdc00u</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">uint16_t</span> TRAIL_SURROGATE_MAX <span class="token operator">=</span> <span class="token number">0xdfffu</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">uint16_t</span> LEAD_OFFSET         <span class="token operator">=</span> LEAD_SURROGATE_MIN <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token number">0x10000</span> <span class="token operator">&gt;&gt;</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">uint32_t</span> SURROGATE_OFFSET    <span class="token operator">=</span> <span class="token number">0x10000u</span> <span class="token operator">-</span> <span class="token punctuation">(</span>LEAD_SURROGATE_MIN <span class="token operator">&lt;&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">-</span> TRAIL_SURROGATE_MIN<span class="token punctuation">;</span>
+
+    <span class="token comment">// Maximum valid value for a Unicode code point</span>
+    <span class="token keyword">const</span> <span class="token keyword">uint32_t</span> CODE_POINT_MAX      <span class="token operator">=</span> <span class="token number">0x0010ffffu</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_type<span class="token operator">&gt;</span>
+    <span class="token keyword">inline</span> <span class="token keyword">uint8_t</span> <span class="token function">mask8</span><span class="token punctuation">(</span>octet_type oc<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">static_cast</span><span class="token operator">&lt;</span><span class="token keyword">uint8_t</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token number">0xff</span> <span class="token operator">&amp;</span> oc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> u16_type<span class="token operator">&gt;</span>
+    <span class="token keyword">inline</span> <span class="token keyword">uint16_t</span> <span class="token function">mask16</span><span class="token punctuation">(</span>u16_type oc<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">static_cast</span><span class="token operator">&lt;</span><span class="token keyword">uint16_t</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token number">0xffff</span> <span class="token operator">&amp;</span> oc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_type<span class="token operator">&gt;</span>
+    <span class="token keyword">inline</span> <span class="token keyword">bool</span> <span class="token function">is_trail</span><span class="token punctuation">(</span>octet_type oc<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span>oc<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0x2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> u16<span class="token operator">&gt;</span>
+    <span class="token keyword">inline</span> <span class="token keyword">bool</span> <span class="token function">is_lead_surrogate</span><span class="token punctuation">(</span>u16 cp<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>cp <span class="token operator">&gt;=</span> LEAD_SURROGATE_MIN <span class="token operator">&amp;&amp;</span> cp <span class="token operator">&lt;=</span> LEAD_SURROGATE_MAX<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> u16<span class="token operator">&gt;</span>
+    <span class="token keyword">inline</span> <span class="token keyword">bool</span> <span class="token function">is_trail_surrogate</span><span class="token punctuation">(</span>u16 cp<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>cp <span class="token operator">&gt;=</span> TRAIL_SURROGATE_MIN <span class="token operator">&amp;&amp;</span> cp <span class="token operator">&lt;=</span> TRAIL_SURROGATE_MAX<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> u16<span class="token operator">&gt;</span>
+    <span class="token keyword">inline</span> <span class="token keyword">bool</span> <span class="token function">is_surrogate</span><span class="token punctuation">(</span>u16 cp<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>cp <span class="token operator">&gt;=</span> LEAD_SURROGATE_MIN <span class="token operator">&amp;&amp;</span> cp <span class="token operator">&lt;=</span> TRAIL_SURROGATE_MAX<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> u32<span class="token operator">&gt;</span>
+    <span class="token keyword">inline</span> <span class="token keyword">bool</span> <span class="token function">is_code_point_valid</span><span class="token punctuation">(</span>u32 cp<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>cp <span class="token operator">&lt;=</span> CODE_POINT_MAX <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">is_surrogate</span><span class="token punctuation">(</span>cp<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_iterator<span class="token operator">&gt;</span>
+    <span class="token keyword">inline</span> <span class="token keyword">typename</span> std<span class="token operator">::</span>iterator_traits<span class="token operator">&lt;</span>octet_iterator<span class="token operator">&gt;</span><span class="token operator">::</span>difference_type
+    <span class="token function">sequence_length</span><span class="token punctuation">(</span>octet_iterator lead_it<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">uint8_t</span> lead <span class="token operator">=</span> utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span><span class="token operator">*</span>lead_it<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>lead <span class="token operator">&lt;</span> <span class="token number">0x80</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>lead <span class="token operator">&gt;&gt;</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0x6</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>lead <span class="token operator">&gt;&gt;</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0xe</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token number">3</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>lead <span class="token operator">&gt;&gt;</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0x1e</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token number">4</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_difference_type<span class="token operator">&gt;</span>
+    <span class="token keyword">inline</span> <span class="token keyword">bool</span> <span class="token function">is_overlong_sequence</span><span class="token punctuation">(</span><span class="token keyword">uint32_t</span> cp<span class="token punctuation">,</span> octet_difference_type length<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>cp <span class="token operator">&lt;</span> <span class="token number">0x80</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>length <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">)</span> 
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>cp <span class="token operator">&lt;</span> <span class="token number">0x800</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>length <span class="token operator">!=</span> <span class="token number">2</span><span class="token punctuation">)</span> 
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>cp <span class="token operator">&lt;</span> <span class="token number">0x10000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>length <span class="token operator">!=</span> <span class="token number">3</span><span class="token punctuation">)</span> 
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">enum</span> utf_error <span class="token punctuation">{</span>UTF8_OK<span class="token punctuation">,</span> NOT_ENOUGH_ROOM<span class="token punctuation">,</span> INVALID_LEAD<span class="token punctuation">,</span> INCOMPLETE_SEQUENCE<span class="token punctuation">,</span> OVERLONG_SEQUENCE<span class="token punctuation">,</span> INVALID_CODE_POINT<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_iterator<span class="token operator">&gt;</span>
+    utf_error <span class="token function">increase_safely</span><span class="token punctuation">(</span>octet_iterator<span class="token operator">&amp;</span> it<span class="token punctuation">,</span> octet_iterator end<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">++</span>it <span class="token operator">==</span> end<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> NOT_ENOUGH_ROOM<span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">is_trail</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> INCOMPLETE_SEQUENCE<span class="token punctuation">;</span>
+        
+        <span class="token keyword">return</span> UTF8_OK<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token macro property">#<span class="token directive keyword">define</span> UTF8_CPP_INCREASE_AND_RETURN_ON_ERROR(IT, END) {utf_error ret = increase_safely(IT, END); if (ret != UTF8_OK) return ret;}    </span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_iterator<span class="token operator">&gt;</span>
+    utf_error <span class="token function">get_sequence_1</span><span class="token punctuation">(</span>octet_iterator<span class="token operator">&amp;</span> it<span class="token punctuation">,</span> octet_iterator end<span class="token punctuation">,</span> <span class="token keyword">uint32_t</span><span class="token operator">&amp;</span> code_point<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>it <span class="token operator">==</span> end<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> NOT_ENOUGH_ROOM<span class="token punctuation">;</span>
+
+        code_point <span class="token operator">=</span> utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> UTF8_OK<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_iterator<span class="token operator">&gt;</span>
+    utf_error <span class="token function">get_sequence_2</span><span class="token punctuation">(</span>octet_iterator<span class="token operator">&amp;</span> it<span class="token punctuation">,</span> octet_iterator end<span class="token punctuation">,</span> <span class="token keyword">uint32_t</span><span class="token operator">&amp;</span> code_point<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>it <span class="token operator">==</span> end<span class="token punctuation">)</span> 
+            <span class="token keyword">return</span> NOT_ENOUGH_ROOM<span class="token punctuation">;</span>
+        
+        code_point <span class="token operator">=</span> utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">UTF8_CPP_INCREASE_AND_RETURN_ON_ERROR</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+
+        code_point <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>code_point <span class="token operator">&lt;&lt;</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0x7ff</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0x3f</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> UTF8_OK<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_iterator<span class="token operator">&gt;</span>
+    utf_error <span class="token function">get_sequence_3</span><span class="token punctuation">(</span>octet_iterator<span class="token operator">&amp;</span> it<span class="token punctuation">,</span> octet_iterator end<span class="token punctuation">,</span> <span class="token keyword">uint32_t</span><span class="token operator">&amp;</span> code_point<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>it <span class="token operator">==</span> end<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> NOT_ENOUGH_ROOM<span class="token punctuation">;</span>
+            
+        code_point <span class="token operator">=</span> utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">UTF8_CPP_INCREASE_AND_RETURN_ON_ERROR</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+
+        code_point <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>code_point <span class="token operator">&lt;&lt;</span> <span class="token number">12</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xffff</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xfff</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">UTF8_CPP_INCREASE_AND_RETURN_ON_ERROR</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+
+        code_point <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0x3f</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> UTF8_OK<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_iterator<span class="token operator">&gt;</span>
+    utf_error <span class="token function">get_sequence_4</span><span class="token punctuation">(</span>octet_iterator<span class="token operator">&amp;</span> it<span class="token punctuation">,</span> octet_iterator end<span class="token punctuation">,</span> <span class="token keyword">uint32_t</span><span class="token operator">&amp;</span> code_point<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>it <span class="token operator">==</span> end<span class="token punctuation">)</span>
+           <span class="token keyword">return</span> NOT_ENOUGH_ROOM<span class="token punctuation">;</span>
+
+        code_point <span class="token operator">=</span> utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">UTF8_CPP_INCREASE_AND_RETURN_ON_ERROR</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+
+        code_point <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>code_point <span class="token operator">&lt;&lt;</span> <span class="token number">18</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0x1fffff</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token number">12</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0x3ffff</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">UTF8_CPP_INCREASE_AND_RETURN_ON_ERROR</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+
+        code_point <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span>utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xfff</span><span class="token punctuation">;</span>
+
+        <span class="token function">UTF8_CPP_INCREASE_AND_RETURN_ON_ERROR</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+
+        code_point <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0x3f</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> UTF8_OK<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token macro property">#<span class="token directive keyword">undef</span> UTF8_CPP_INCREASE_AND_RETURN_ON_ERROR</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_iterator<span class="token operator">&gt;</span>
+    utf_error <span class="token function">validate_next</span><span class="token punctuation">(</span>octet_iterator<span class="token operator">&amp;</span> it<span class="token punctuation">,</span> octet_iterator end<span class="token punctuation">,</span> <span class="token keyword">uint32_t</span><span class="token operator">&amp;</span> code_point<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>it <span class="token operator">==</span> end<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> NOT_ENOUGH_ROOM<span class="token punctuation">;</span>
+
+        <span class="token comment">// Save the original value of it so we can go back in case of failure</span>
+        <span class="token comment">// Of course, it does not make much sense with i.e. stream iterators</span>
+        octet_iterator original_it <span class="token operator">=</span> it<span class="token punctuation">;</span>
+
+        <span class="token keyword">uint32_t</span> cp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token comment">// Determine the sequence length based on the lead octet</span>
+        <span class="token keyword">typedef</span> <span class="token keyword">typename</span> std<span class="token operator">::</span>iterator_traits<span class="token operator">&lt;</span>octet_iterator<span class="token operator">&gt;</span><span class="token operator">::</span>difference_type octet_difference_type<span class="token punctuation">;</span>
+        <span class="token keyword">const</span> octet_difference_type length <span class="token operator">=</span> utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">sequence_length</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Get trail octets and calculate the code point</span>
+        utf_error err <span class="token operator">=</span> UTF8_OK<span class="token punctuation">;</span>
+        <span class="token keyword">switch</span> <span class="token punctuation">(</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span> 
+                <span class="token keyword">return</span> INVALID_LEAD<span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+                err <span class="token operator">=</span> utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">get_sequence_1</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span> end<span class="token punctuation">,</span> cp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
+                err <span class="token operator">=</span> utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">get_sequence_2</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span> end<span class="token punctuation">,</span> cp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span>
+                err <span class="token operator">=</span> utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">get_sequence_3</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span> end<span class="token punctuation">,</span> cp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token number">4</span><span class="token operator">:</span>
+                err <span class="token operator">=</span> utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">get_sequence_4</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span> end<span class="token punctuation">,</span> cp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>err <span class="token operator">==</span> UTF8_OK<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// Decoding succeeded. Now, security checks...</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">is_code_point_valid</span><span class="token punctuation">(</span>cp<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">is_overlong_sequence</span><span class="token punctuation">(</span>cp<span class="token punctuation">,</span> length<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token comment">// Passed! Return here.</span>
+                    code_point <span class="token operator">=</span> cp<span class="token punctuation">;</span>
+                    <span class="token operator">++</span>it<span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> UTF8_OK<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">else</span>
+                    err <span class="token operator">=</span> OVERLONG_SEQUENCE<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> 
+                err <span class="token operator">=</span> INVALID_CODE_POINT<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// Failure branch - restore the original value of the iterator</span>
+        it <span class="token operator">=</span> original_it<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> err<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_iterator<span class="token operator">&gt;</span>
+    <span class="token keyword">inline</span> utf_error <span class="token function">validate_next</span><span class="token punctuation">(</span>octet_iterator<span class="token operator">&amp;</span> it<span class="token punctuation">,</span> octet_iterator end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">uint32_t</span> ignored<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">validate_next</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span> end<span class="token punctuation">,</span> ignored<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span> <span class="token comment">// namespace internal</span>
+
+
+    <span class="token comment">// Byte order mark</span>
+    <span class="token keyword">const</span> <span class="token keyword">uint8_t</span> bom<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0xef</span><span class="token punctuation">,</span> <span class="token number">0xbb</span><span class="token punctuation">,</span> <span class="token number">0xbf</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_iterator<span class="token operator">&gt;</span>
+    octet_iterator <span class="token function">find_invalid</span><span class="token punctuation">(</span>octet_iterator start<span class="token punctuation">,</span> octet_iterator end<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        octet_iterator result <span class="token operator">=</span> start<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>result <span class="token operator">!=</span> end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            utf8<span class="token operator">::</span>internal<span class="token operator">::</span>utf_error err_code <span class="token operator">=</span> utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">validate_next</span><span class="token punctuation">(</span>result<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>err_code <span class="token operator">!=</span> internal<span class="token operator">::</span>UTF8_OK<span class="token punctuation">)</span>
+                <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_iterator<span class="token operator">&gt;</span>
+    <span class="token keyword">inline</span> <span class="token keyword">bool</span> <span class="token function">is_valid</span><span class="token punctuation">(</span>octet_iterator start<span class="token punctuation">,</span> octet_iterator end<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>utf8<span class="token operator">::</span><span class="token function">find_invalid</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token punctuation">)</span> <span class="token operator">==</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_iterator<span class="token operator">&gt;</span>
+    <span class="token keyword">inline</span> <span class="token keyword">bool</span> starts_with_bom <span class="token punctuation">(</span>octet_iterator it<span class="token punctuation">,</span> octet_iterator end<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token punctuation">(</span><span class="token punctuation">(</span>it <span class="token operator">!=</span> end<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> bom<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+            <span class="token punctuation">(</span><span class="token punctuation">(</span>it <span class="token operator">!=</span> end<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> bom<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+            <span class="token punctuation">(</span><span class="token punctuation">(</span>it <span class="token operator">!=</span> end<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token operator">==</span> bom<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+           <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">//Deprecated in release 2.3 </span>
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> octet_iterator<span class="token operator">&gt;</span>
+    <span class="token keyword">inline</span> <span class="token keyword">bool</span> is_bom <span class="token punctuation">(</span>octet_iterator it<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token punctuation">(</span>utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> bom<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span>
+            <span class="token punctuation">(</span>utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> bom<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span>
+            <span class="token punctuation">(</span>utf8<span class="token operator">::</span>internal<span class="token operator">::</span><span class="token function">mask8</span><span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token operator">==</span> bom<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+           <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token comment">// namespace utf8</span>
+
+<span class="token macro property">#<span class="token directive keyword">endif</span> </span><span class="token comment">// header guard</span>
+
+
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/fineutils/assets/js/34.b84f8618.js" defer></script><script src="/fineutils/assets/js/app.7d3a9dfe.js" defer></script>
+  </body>
+</html>
