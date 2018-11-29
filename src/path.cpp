@@ -132,7 +132,7 @@ std::string ffw::getExecutableDir() {
     int bytes = std::min(readlink(szTmp, result, PATH_MAX), ssize_t(PATH_MAX - 1));
     if (bytes >= 0)
         result[bytes] = '\0';
-    return std::string(result);
+    return ffw::dirname(std::string(result));
 #endif  
 }
 
