@@ -9,6 +9,7 @@
 #else
 #include <limits.h>
 #include <unistd.h>
+#include <pwd.h>
 #include <stdio.h>
 #include <algorithm>
 #endif
@@ -82,15 +83,13 @@ std::string ffw::extension(const std::string& path) {
 
 std::string ffw::getLocalAppDataDir() {
 #ifdef FFW_WINDOWS
-    static std::string appDataDir;
-    if (appDataDir.empty()) {
-        char appDataPath[MAX_PATH];
-        SHGetSpecialFolderPathA(nullptr, appDataPath, CSIDL_LOCAL_APPDATA, false);
-        appDataDir = std::string(appDataPath);
-    }
-    return appDataDir;
+    char appDataPath[MAX_PATH];
+    SHGetSpecialFolderPathA(nullptr, appDataPath, CSIDL_LOCAL_APPDATA, false);
+    return std::string(appDataPath);
 #else
-    return "";
+    struct passwd *pw = getpwuid(getuid());
+    const char *homedir = pw->pw_dir;
+    return std::string(homedir);
 #endif
 }
 
@@ -100,7 +99,9 @@ std::string ffw::getAppDataDir() {
     SHGetSpecialFolderPathA(nullptr, appDataPath, CSIDL_APPDATA, false);
     return std::string(appDataPath);
 #else
-    return "";
+    struct passwd *pw = getpwuid(getuid());
+    const char *homedir = pw->pw_dir;
+    return std::string(homedir);
 #endif
 }
 
@@ -132,7 +133,9 @@ std::string ffw::getExecutableDir() {
     int bytes = std::min(readlink(szTmp, result, PATH_MAX), ssize_t(PATH_MAX - 1));
     if (bytes >= 0)
         result[bytes] = '\0';
-    return ffw::dirname(std::string(result));
+    std::string executableDir = ffw::dirname(std::string(result));
+    executableDir = executableDir.substr(0, executableDir.size() - 1);
+    return executableDir;
 #endif  
 }
 
